@@ -36,21 +36,33 @@ public class Hostel{
 	               String line = null;
 	            
 	               //write your code here !!!
+	               int i=0;
 	               while ((line = br.readLine()) != null) {
 		               String[] splited = line.split("\\s+");
 		               String checkName = splited[0];
 		               //write your code here !!!
 //		               compare check name with name and return true if present and false if not
+		               if(checkName.equals(name))
+		               {
+		            	  return false;
+		               }
+		         
+	               }
 	               }
 	               
-	               
-	            }catch(Exception e){
+	            catch(Exception e){
 	                System.out.println(e);
 	            }
 			return true;
 	   }
        public static void allotHostel(){
     	   //write your code here!!!
+    	   try {
+			writedata();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	   
        }
 
@@ -76,7 +88,9 @@ public class Hostel{
     	   boolean chk = true;
     	   
     	   //write your code here
-    	   
+System.out.println(readData(name));
+    	   if(readData(name))
+    		   return false;
     	   return chk;
         }
         
@@ -108,7 +122,7 @@ public class Hostel{
             //verify Register number using a function verifyStudent
             boolean checkStu = verifyStudent(regNo);
             boolean checkName = verifyName(name);
-
+System.out.println(checkName+""+checkStu);
             if(!(checkStu && checkName)){
                 System.out.println("User already alloted Hostel!!");
                 name = typeName();
